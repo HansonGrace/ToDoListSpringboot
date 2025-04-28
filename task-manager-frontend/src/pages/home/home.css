@@ -32,3 +32,32 @@
     font-size: 1.2rem;
     color: #666;
 }
+
+.home-bottom h2{
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.home-bottom p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+/* Button */
+.home-button {
+    margin-top: 20px;
+    padding: 12px 24px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.home-button:hover {
+    background-color: #357ABD;
+}
