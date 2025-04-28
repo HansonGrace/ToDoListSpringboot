@@ -5,5 +5,30 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color:aquamarine
+    background: linear-gradient(135deg, #89f7fe, #66a6ff);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.home-container {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 
+}
+
+.home-top {
+    margin-bottom: 30px;
+}
+
+.home-title{
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.home-subtitle{
+    font-size: 1.2rem;
+    color: #666;
 }

@@ -4,19 +4,20 @@ import './home.css';
 function Home() {
     return (
         <div className="home">
-            <div className='home-container'>
-                <div className='home-top'>
-                    <h1>Task Manager</h1>
-                    <p>Manage your tasks efficiently</p>
+            <div className="home-container">
+                <div className="home-top">
+                    <h1 className="home-title">Task Manager</h1>
+                    <p className="home-subtitle">Organize. Prioritize. Succeed.</p>
                 </div>
-                <div className='home-bottom'>
-                    <h2>Welcome to the Task Manager App</h2>
-                    <p>Here you can create, update, and delete tasks.</p>
-                    <p>Get started by adding your first task!</p>
+                <div className="home-bottom">
+                    <h2>Welcome!</h2>
+                    <p>Manage your daily tasks with ease and efficiency.</p>
+                    <p>Create, update, and stay on top of your to-do list.</p>
+                    <button className="home-button">Get Started</button>
                 </div>
             </div>
         </div>
     );
 }
 
-export default Home
+export default Home;
