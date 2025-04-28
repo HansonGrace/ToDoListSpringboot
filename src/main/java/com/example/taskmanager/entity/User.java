@@ -1,6 +1,12 @@
 package com.example.taskmanager.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
 
 /**
  * User entity class
@@ -9,6 +15,8 @@ import jakarta.persistence.*;
  * Each instance of User will be stored as a row in the table
  */
 
+@Entity // marks JPA entity
+@Table(name = "users") // specifies the name of the table in the database
 public class User {
     @Id // marks this field as the primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto-incremented primary key
