@@ -18,7 +18,7 @@ function Home() {
     } else {
       localStorage.setItem('firstName', fName);
       localStorage.setItem('lastName', lName);
-      window.location = '/thanks';
+      window.location = '/dashboard';
     }
   };
 

@@ -50,6 +50,7 @@ html, body {
   flex-grow: 1;
   position: relative;
   z-index: 1;
+  margin-top: 80px;
 }
 
 /* frosted glass wrapper */
@@ -125,4 +126,16 @@ button:hover {
 
 .nav-buttons span:hover {
   text-decoration: underline;
+}
+input {
+    background: transparent !important;
+  }
+
+  /* Remove autofill background override */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 30px rgba(255, 255, 255, 0.05) inset !important;
+  -webkit-text-fill-color: #ffffffc9 !important;
+  transition: background-color 9999s ease-out 0s;
 }
