@@ -1,153 +1,107 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css');
 
 * {
   padding: 0;
   margin: 0;
-  font-family: "Poppins", sans-serif;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-/* Top navigation bar */
-.top-bar {
-  background-color: #183B4E;
-  color: white;
-  padding: 16px;
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
+html,
+body {
+  width: 100%;
+  height: 100%;
 }
 
-/* Landing page layout */
-.landing-page {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
-
-/* Get Started Button container */
-.get-started-container {
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Rounded blue Get Started button */
-.get-started-button {
-  background-color: #27548A;
-  color: white;
-  font-size: 16px;
-  padding: 14px 28px;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.get-started-button:hover {
-  background-color: #1d406f;
-}
-
-/* Auth page layout */
-.auth-page {
-  background-color: #F3F3E0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Reusable auth box container */
-.auth-box {
-  width: 320px;
-  background: rgba(39, 84, 138, 0.85);
-  color: white;
-  border-radius: 10px;
-  padding: 40px 20px;
-  text-align: center;
-  border: 1px solid #40175815;
-  overflow: hidden;
-  transition: height 0.4s ease;
-}
-
-/* Variable height based on mode */
-.auth-box.register {
-  height: 540px;
-}
-
-.auth-box.login {
-  height: 440px;
-}
-
-/* Shared input styles */
-.input-group {
+/* Container holds everything */
+.container {
   position: relative;
-  margin-bottom: 20px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
-.input-group i {
+/* Background image layer */
+.background-image {
   position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #ffffffcf;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+
+  
 }
 
-.input-group input {
+/* Form box */
+.wrapper {
+  width: 300px;
+  padding: 20px;
+  z-index: 1;
+  background: #ffffff35;
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.15);
+}
+
+/* Input wrapper */
+.input_box {
+  margin: 15px 0px;
+}
+
+/* Input styling */
+input {
   width: 100%;
-  padding: 10px 35px 10px 10px;
+  padding: 12px 10px;
+  border: 1px solid #fff;
   border-radius: 5px;
-  border: none;
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
   outline: none;
-}
-
-.input-group input::placeholder {
-  color: #fff;
+  background: transparent;
+  color: #ffffffc9;
   font-size: 12px;
   letter-spacing: 1px;
 }
 
-.forgot-password {
-  display: block;
-  margin-top: -10px;
+input::placeholder {
+  color: #ffffffc9;
   font-size: 12px;
-  font-weight: 600;
-  color: #ffffff;
-  text-align: right;
-  margin-bottom: 15px;
+  letter-spacing: 1px;
 }
 
-/* Buttons */
-.btn {
-  padding: 10px 20px;
+/* Button styling */
+button {
+  border: 0;
+  outline: none;
   width: 100%;
-  background-color: #dfeaf7;
-  border: none;
-  text-transform: uppercase;
-  font-weight: 600;
+  padding: 15px;
+  background: #fff;
   color: #000;
-  border-radius: 5px;
+  font-weight: 500;
+  border-radius: 7px;
   cursor: pointer;
-  letter-spacing: 1px;
-  margin-bottom: 10px;
+  box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s;
 }
 
-/* Toggle Text Links */
-.toggle-text {
-  font-size: 12px;
-  letter-spacing: 1px;
-  font-weight: 300;
+button:hover {
+  background: #ffffffe5;
 }
 
-.toggle {
-  color: #ffffff;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.toggle:hover {
-  text-decoration: underline;
-}
+.dark-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Adjust opacity as needed */
+    z-index: 0;
+  }
+  
+  /* Make sure the form is above the overlay */
+  .wrapper {
+    z-index: 1;
+    position: relative;
+  }
+  
