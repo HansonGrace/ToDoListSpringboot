@@ -16,7 +16,7 @@
 }
 
 .wrapper {
-  height: 430px;
+  height: 540px;
   width: 320px;
   perspective: 1000px;
   backdrop-filter: blur(5px);
@@ -119,14 +119,16 @@
   margin-bottom: 10px;
 }
 
+/* dont have an account? text */
 .toggle-text {
   font-size: 12px;
   letter-spacing: 1px;
   font-weight: 300;
 }
 
+/* Register Now hyperlink*/
 .toggle {
-  color: #050506;
+  color: #000000;
   cursor: pointer;
   font-weight: 600;
 }

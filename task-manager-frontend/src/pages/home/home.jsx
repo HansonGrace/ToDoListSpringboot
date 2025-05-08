@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './home.css';
 
 function Home() {
+    const [flipped, setFlipped] = useState(false);
+
+    const toggleFlip = () => {
+        setFlipped(!flipped);
+    };
+
     return (
         <div
             className="background-wrapper"
@@ -13,7 +19,7 @@ function Home() {
                 height: '100vh',
             }}
         >
-            <div className="wrapper">
+            <div className={`wrapper ${flipped ? 'flip' : ''}`}>
                 <div className="card login-size">
                     <div className="login-form">
                         <h2>Login</h2>
@@ -28,7 +34,10 @@ function Home() {
                         <a href="#" className="forgot-password">Forgot Password?</a>
                         <button className="btn btn-login">Login</button>
                         <p className="toggle-text">
-                            Don't have an account? <a href="#" className="toggle">Register Now</a>
+                            Don't have an account?{' '}
+                            <span className="toggle" onClick={toggleFlip}>
+                                Register Now
+                            </span>
                         </p>
                     </div>
                 </div>
@@ -53,7 +62,10 @@ function Home() {
                     </div>
                     <button className="btn">Register</button>
                     <p className="toggle-text">
-                        Already have an account? <a href="#" className="toggle">Login Now</a>
+                        Already have an account?{' '}
+                        <span className="toggle" onClick={toggleFlip}>
+                            Login Now
+                        </span>
                     </p>
                 </div>
             </div>
