@@ -1,73 +1,23 @@
-import React, { useState } from 'react';
+// src/pages/home/home.jsx
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './home.css';
 
 function Home() {
-    const [flipped, setFlipped] = useState(false);
-
-    const toggleFlip = () => {
-        setFlipped(!flipped);
-    };
+    const navigate = useNavigate();
 
     return (
-        <div
-            className="background-wrapper"
-            style={{
-                backgroundImage: 'url("/mountainimage.png")',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                width: '100%',
-                height: '100vh',
-            }}
-        >
-            <div className={`wrapper ${flipped ? 'flip' : ''}`}>
-                <div className="card login-size">
-                    <div className="login-form">
-                        <h2>Login</h2>
-                        <div className="input-group">
-                            <i className="fas fa-envelope"></i>
-                            <input type="email" placeholder="Email" />
-                        </div>
-                        <div className="input-group">
-                            <i className="fas fa-lock"></i>
-                            <input type="password" placeholder="Password" />
-                        </div>
-                        <a href="#" className="forgot-password">Forgot Password?</a>
-                        <button className="btn btn-login">Login</button>
-                        <p className="toggle-text">
-                            Don't have an account?{' '}
-                            <span className="toggle" onClick={toggleFlip}>
-                                Register Now
-                            </span>
-                        </p>
-                    </div>
-                </div>
-
-                <div className="content">
-                    <h2>Registration</h2>
-                    <div className="input-group">
-                        <i className="fas fa-user"></i>
-                        <input type="text" placeholder="First Name" />
-                    </div>
-                    <div className="input-group">
-                        <i className="fas fa-user"></i>
-                        <input type="text" placeholder="Last Name" />
-                    </div>
-                    <div className="input-group">
-                        <i className="fas fa-envelope"></i>
-                        <input type="email" placeholder="Email" />
-                    </div>
-                    <div className="input-group">
-                        <i className="fas fa-lock"></i>
-                        <input type="password" placeholder="Password" />
-                    </div>
-                    <button className="btn">Register</button>
-                    <p className="toggle-text">
-                        Already have an account?{' '}
-                        <span className="toggle" onClick={toggleFlip}>
-                            Login Now
-                        </span>
-                    </p>
-                </div>
+        <div className="landing-page" style={{ backgroundColor: '#F3F3E0', height: '100vh' }}>
+            <div className="top-bar">
+                Task Manager
+            </div>
+            <div className="get-started-container">
+                <button
+                    className="get-started-button"
+                    onClick={() => navigate('/register')}
+                >
+                    Get Started
+                </button>
             </div>
         </div>
     );
