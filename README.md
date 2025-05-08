@@ -27,7 +27,7 @@ Users will have a secure login system and their tasks will be private to their a
 
 ---
 
-##  Techn Stack
+##  Tech Stack
 
 | Part | Technology |
 |:---|:---|
