@@ -1,30 +1,59 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import './home.css';
 
 function Home() {
-    const navigate = useNavigate(); 
-
-    const handleGetStarted = () => {
-        navigate('/register'); 
-    };
-
     return (
-        <div className="home">
-            <div className="home-container">
-                <div className="home-top">
-                    <h1 className="home-title">Task Manager</h1>
-                    <p className="home-subtitle">Organize. Prioritize. Succeed.</p>
+        <div
+            className="background-wrapper"
+            style={{
+                backgroundImage: 'url("/mountainimage.png")',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                width: '100%',
+                height: '100vh',
+            }}
+        >
+            <div className="wrapper">
+                <div className="card login-size">
+                    <div className="login-form">
+                        <h2>Login</h2>
+                        <div className="input-group">
+                            <i className="fas fa-envelope"></i>
+                            <input type="email" placeholder="Email" />
+                        </div>
+                        <div className="input-group">
+                            <i className="fas fa-lock"></i>
+                            <input type="password" placeholder="Password" />
+                        </div>
+                        <a href="#" className="forgot-password">Forgot Password?</a>
+                        <button className="btn btn-login">Login</button>
+                        <p className="toggle-text">
+                            Don't have an account? <a href="#" className="toggle">Register Now</a>
+                        </p>
+                    </div>
                 </div>
-                <div className="home-bottom">
-                    <h2>Welcome!</h2>
-                    <p>Manage your daily tasks with ease and efficiency.</p>
-                    <p>Create, update, and stay on top of your to-do list.</p>
-                    <button className="home-button" onClick={handleGetStarted}>Get Started</button>
 
-                    {/* already have an account? hyperlink */}
-                    <p className="home-login-text">
-                        Already have an account? <a href="/login" className="login-link">Login</a>
+                <div className="content">
+                    <h2>Registration</h2>
+                    <div className="input-group">
+                        <i className="fas fa-user"></i>
+                        <input type="text" placeholder="First Name" />
+                    </div>
+                    <div className="input-group">
+                        <i className="fas fa-user"></i>
+                        <input type="text" placeholder="Last Name" />
+                    </div>
+                    <div className="input-group">
+                        <i className="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email" />
+                    </div>
+                    <div className="input-group">
+                        <i className="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" />
+                    </div>
+                    <button className="btn">Register</button>
+                    <p className="toggle-text">
+                        Already have an account? <a href="#" className="toggle">Login Now</a>
                     </p>
                 </div>
             </div>
