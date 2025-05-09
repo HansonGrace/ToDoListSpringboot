@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Home from './pages/home/home';
 import Register from './pages/register/register';
 import Dashboard from './pages/dashboard/dashboard';
+import Login from './pages/login/login';
+
 
 
 function App() {
@@ -20,6 +22,9 @@ function App() {
         <Route path="/register" element={<Register />} />
 
         <Route path="/dashboard" element={<Dashboard />} />
+
+        <Route path="/login" element={<Login />} />
+
 
       </Routes>
     </Router>
