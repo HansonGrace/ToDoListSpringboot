@@ -34,24 +34,30 @@ function Home() {
         <span onClick={() => navigate('/dashboard')}>Dashboard</span>
       </div>
 
-      {/* Centered form */}
+      {/* Centered title and form */}
       <div className="center-wrapper">
-        <div className="wrapper">
-          <div className="input_box">
-            <input type="text" id="fName" placeholder="First Name" />
+        <div>
+          <div className="home-title">
+            <h1>Flight</h1>
+            <p>Swimming Holes and Hot Springs in the U.S.</p>
           </div>
-          <div className="input_box">
-            <input type="text" id="lName" placeholder="Last Name" />
+          <div className="wrapper">
+            <div className="input_box">
+              <input type="text" id="fName" placeholder="First Name" />
+            </div>
+            <div className="input_box">
+              <input type="text" id="lName" placeholder="Last Name" />
+            </div>
+            <div className="input_box">
+              <input type="email" id="emailF" placeholder="Email Address" />
+            </div>
+            <div className="input_box">
+              <input type="password" id="passF" placeholder="Password" />
+            </div>
+            <button id="submit" onClick={handleSubmit}>
+              Register
+            </button>
           </div>
-          <div className="input_box">
-            <input type="email" id="emailF" placeholder="Email Address" />
-          </div>
-          <div className="input_box">
-            <input type="password" id="passF" placeholder="Password" />
-          </div>
-          <button id="submit" onClick={handleSubmit}>
-            Register
-          </button>
         </div>
       </div>
     </div>
