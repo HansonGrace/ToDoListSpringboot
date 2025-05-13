@@ -31,7 +31,6 @@ function Home() {
       <div className="nav-buttons">
         <span onClick={() => navigate('/login')}>Login</span>
         <span onClick={() => navigate('/about')}>About</span>
-        <span onClick={() => navigate('/dashboard')}>Dashboard</span>
       </div>
 
       {/* Centered title and form */}
@@ -41,6 +40,7 @@ function Home() {
             <h1>Flight</h1>
             <p>Swimming Holes and Hot Springs in the U.S.</p>
           </div>
+
           <div className="wrapper">
             <div className="input_box">
               <input type="text" id="fName" placeholder="First Name" />
@@ -57,6 +57,10 @@ function Home() {
             <button id="submit" onClick={handleSubmit}>
               Register
             </button>
+          </div>
+
+          <div className="below-wrapper">
+            <span onClick={() => navigate('/map')}>Continue as guest</span>
           </div>
         </div>
       </div>

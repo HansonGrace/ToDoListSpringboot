@@ -53,6 +53,23 @@ html, body {
   margin-top: 20px;
 }
 
+.below-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+  
+}
+
+.below-wrapper span {
+  color: white;
+  font-weight: 300;
+  font-size: 14px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: text-decoration 0.2s ease;
+}
 /* frosted glass wrapper */
 .wrapper {
   width: 300px;
@@ -155,4 +172,7 @@ input:-webkit-autofill:focus {
 .home-title p {
   font-weight: 300;
   font-size: 13px;
+}
+.below-wrapper span:hover {
+  text-decoration: underline;
 }

@@ -1,0 +1,48 @@
+/* src/pages/map/map.css */
+.map-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(to bottom, #e0f7fa, #b2ebf2);
+  font-family: 'Poppins', sans-serif;
+}
+
+.sidebar {
+  width: 300px;
+  padding: 30px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  overflow-y: auto;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar h2 {
+  margin-top: 0;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.sidebar p {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.sidebar button {
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.sidebar button:hover {
+  background-color: #c8fff4;
+}
+
+.us-map {
+  flex-grow: 1;
+}

@@ -5,8 +5,7 @@ import Home from './pages/home/home';
 import Register from './pages/register/register';
 import Dashboard from './pages/dashboard/dashboard';
 import Login from './pages/login/login';
-
-
+import Map from './pages/map/map'; // ✅ ADD THIS
 
 function App() {
   return (
@@ -14,18 +13,16 @@ function App() {
       <Routes>
         {/* Redirect root to /home */}
         <Route path="/" element={<Navigate to="/home" replace />} />
-        
+
         {/* Landing Page */}
         <Route path="/home" element={<Home />} />
-        
+
         {/* Register/Login Page */}
         <Route path="/register" element={<Register />} />
-
         <Route path="/dashboard" element={<Dashboard />} />
-
         <Route path="/login" element={<Login />} />
 
-
+        <Route path="/map" element={<Map />} />
       </Routes>
     </Router>
   );
