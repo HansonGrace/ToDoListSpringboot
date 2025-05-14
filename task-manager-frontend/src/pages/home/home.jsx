@@ -31,6 +31,7 @@ function Home() {
       <div className="nav-buttons">
         <span onClick={() => navigate('/login')}>Login</span>
         <span onClick={() => navigate('/about')}>About</span>
+        <span onClick={() => navigate('/faq')}>FAQ</span>
       </div>
 
       {/* Centered title and form */}

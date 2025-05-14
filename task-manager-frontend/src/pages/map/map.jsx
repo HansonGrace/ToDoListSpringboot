@@ -1,5 +1,5 @@
 // src/pages/map/map.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   ComposableMap,
@@ -20,12 +20,14 @@ function MapPage() {
   const [center, setCenter] = useState([-98, 38]);
   const [allGeos, setAllGeos] = useState([]);
   const [searchState, setSearchState] = useState('');
+  const [error, setError] = useState('');
 
   const handleStateClick = (geo) => {
     const centroid = geoCentroid(geo);
     setSelectedState(geo.properties.name);
     setCenter(centroid);
     setZoom(3);
+    setError('');
   };
 
   const handleStateSearch = () => {
@@ -35,7 +37,7 @@ function MapPage() {
     if (geo) {
       handleStateClick(geo);
     } else {
-      alert('State not found.');
+      setError('State not found!');
     }
   };
 
@@ -43,42 +45,46 @@ function MapPage() {
     setSelectedState(null);
     setCenter([-98, 38]);
     setZoom(1);
+    setError('');
+    setSearchState('');
   };
 
   return (
-    <>
-      {/* Top-left back to home nav */}
-      <div className="nav-buttons" style={{ left: '30px', right: 'auto' }}>
+    <div className="map-page-wrapper">
+      <div className="nav-buttons" style={{ position: 'absolute', top: '20px', right: '30px', zIndex: 10 }}>
+        <span onClick={() => navigate('/login')}>Login</span>
+        <span onClick={() => navigate('/about')}>About</span>
+        <span onClick={() => navigate('/faq')}>FAQ</span>
+      </div>
+
+      <div className="nav-back">
         <span onClick={() => navigate('/home')}>← Back to Home</span>
       </div>
 
       <div className="map-container">
-        {/* Sidebar */}
         <div className="sidebar">
           <h2>{selectedState ? selectedState : 'Select a state'}</h2>
 
-          {/* State Search */}
           <div className="state-search">
             <input
               type="text"
-              placeholder="Search state..."
+              placeholder="Search for a state..."
               value={searchState}
               onChange={(e) => setSearchState(e.target.value)}
             />
             <button onClick={handleStateSearch}>Go</button>
           </div>
+          {error && <p className="error-message">{error}</p>}
 
           {selectedState ? (
-            <p>
-              Swimming holes and hot springs will show up here for {selectedState}. (Coming soon!)
-            </p>
+            <p>Swimming holes and hot springs will show up here for {selectedState}.</p>
           ) : (
-            <p>Click or search a state to begin exploring.</p>
+            <p>Click or search for a state to begin exploring.</p>
           )}
+
           {selectedState && <button onClick={resetView}>Back to US view</button>}
         </div>
 
-        {/* Interactive map */}
         <ComposableMap projection="geoAlbersUsa" className="us-map">
           <ZoomableGroup center={center} zoom={zoom}>
             <Geographies geography={geoUrl}>
@@ -86,36 +92,40 @@ function MapPage() {
                 if (allGeos.length === 0) {
                   setAllGeos(geographies);
                 }
-                return geographies.map((geo) => (
-                  <Geography
-                    key={geo.rsmKey}
-                    geography={geo}
-                    onClick={() => handleStateClick(geo)}
-                    style={{
-                      default: {
-                        fill: '#B2DFDB',
-                        stroke: '#607D8B',
-                        strokeWidth: 0.75,
-                        outline: 'none',
-                      },
-                      hover: {
-                        fill: '#80CBC4',
-                        cursor: 'pointer',
-                        outline: 'none',
-                      },
-                      pressed: {
-                        fill: '#4DB6AC',
-                        outline: 'none',
-                      },
-                    }}
-                  />
-                ));
+                return geographies.map((geo) => {
+                  const isSelected = geo.properties.name === selectedState;
+                  return (
+                    <Geography
+                      key={geo.rsmKey}
+                      geography={geo}
+                      onClick={() => handleStateClick(geo)}
+                      className={isSelected ? 'selected-state' : ''}
+                      style={{
+                        default: {
+                          fill: '#B2DFDB',
+                          stroke: '#607D8B',
+                          strokeWidth: 0.75,
+                          outline: 'none',
+                        },
+                        hover: {
+                          fill: '#80CBC4',
+                          cursor: 'pointer',
+                          outline: 'none',
+                        },
+                        pressed: {
+                          fill: '#4DB6AC',
+                          outline: 'none',
+                        },
+                      }}
+                    />
+                  );
+                });
               }}
             </Geographies>
           </ZoomableGroup>
         </ComposableMap>
       </div>
-    </>
+    </div>
   );
 }
 
