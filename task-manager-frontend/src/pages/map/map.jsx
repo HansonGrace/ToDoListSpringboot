@@ -6,6 +6,8 @@ import './map.css';
 
 function MapPage() {
   return (
+      <div className="top-wrapper">
+        
     <div className="leaflet-map-wrapper">
       <MapContainer center={[38.0, -98.0]} zoom={4} scrollWheelZoom={true}>
         <TileLayer
@@ -14,6 +16,8 @@ function MapPage() {
         />
       </MapContainer>
     </div>
+    </div>
+
   );
 }
 
