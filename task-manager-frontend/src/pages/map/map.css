@@ -1,4 +1,5 @@
 /* src/pages/map/map.css */
+
 .leaflet-map-wrapper {
   width: 100vw;
   height: 100vh;
@@ -9,10 +10,27 @@
   height: 100%;
 }
 
-.top-wrapper {
+.top-bar {
+  width: 100%;
+  height: 60px;
+  background-color: #88d2c0; /* dark green */
+  color: white;
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-direction: column;
-  margin-top: 50px;
+  padding-left: 20px;
+  font-size: 20px;
+  font-weight: 500;
+  position: relative;
+  z-index: 1000;
 }
+
+.leaflet-map-wrapper {
+  width: 100vw;
+  height: calc(100vh - 60px); /* subtract the height of the top bar */
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+}
+
