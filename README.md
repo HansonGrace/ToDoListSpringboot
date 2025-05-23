@@ -1,4 +1,4 @@
-# Task Manager App (Java Spring Boot + React)
+# Outdoor App (Java Spring Boot + React)
 
  **Work In Progress** 
 
