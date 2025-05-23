@@ -3,8 +3,8 @@
 .top-bar {
   width: 100%;
   height: 50px;
-  background-color: #213327; /* white nav bar */
-  color: rgb(255, 255, 255);
+  background-color: #ffffff; /* white nav bar */
+  color: rgb(38, 119, 101);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -36,6 +36,30 @@
 
 .top-right span:hover {
   text-decoration: underline;
+}
+
+.side-info {
+  position: absolute;
+  top: 150px; /* below the top bar */
+  left: 20px; /* align with the left side of the top bar */
+  z-index: 1100;
+  border-radius: 25px;
+  background-color: #ffffff; /* light gray */
+  padding: 20px;
+  width: 300px;
+  height: 400px;
+}
+
+/*adjustments for mboile */
+@media (max-width: 600px){
+  .side-info {
+    top: auto;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    border-radius: 15px;
+  }
 }
 
 /* Map wrapper below nav */

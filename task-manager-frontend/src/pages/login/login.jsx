@@ -42,7 +42,8 @@ function Login() {
             Login
           </button>
           <p
-            className="forgot-password"
+          /*TODO: fix so it highlights when you hover instead */
+            className="forgot-password?"
             style={{
               color: 'white',
               fontSize: '11px',
