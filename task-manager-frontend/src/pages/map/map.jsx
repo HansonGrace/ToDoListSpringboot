@@ -71,8 +71,11 @@ function MapPage() {
           />
         </MapContainer>
 
-        <div className="side-info"></div>
-      </div>
+       <div className="side-info">
+  <h2 className="side-info-title">Explore Locations</h2>
+ 
+</div>
+</div>
     </>
   );
 }
