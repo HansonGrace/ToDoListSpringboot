@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MapContainer, TileLayer, GeoJSON, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -17,18 +17,20 @@ function LakePolygons() {
     fillColor: '#dddddd',     // light gray fill
     color: '#444444',         // dark gray border
     weight: 1.5,
-    fillOpacity: 0.6
+    fillOpacity: 0.6,
   };
 
   return geoData ? <GeoJSON data={geoData} style={lakeStyle} /> : null;
 }
+
 function MapPage() {
   const navigate = useNavigate();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [secondOpen, setSecondOpen] = useState(false);
+  const [selectedType, setSelectedType] = useState('');
 
-  const toggleDropdown = () => setDropdownOpen(prev => !prev);
-  const toggleSecondDropdown = () => setSecondOpen(prev => !prev);
+  const toggleDropdown = () => setDropdownOpen((prev) => !prev);
+  const toggleSecondDropdown = () => setSecondOpen((prev) => !prev);
 
   return (
     <>
@@ -47,7 +49,7 @@ function MapPage() {
       {/* FLOATING DROPDOWNS WITH CLEAN SPACING */}
       <div className="floating-dropdown">
         <div style={{ display: 'flex', columnGap: '80px' }}>
-          {/* First Dropdown */}
+          {/* Distance Dropdown */}
           <div className="dropdown">
             <button className="dropbtn" onClick={toggleDropdown}>
               Distance ▼
@@ -61,19 +63,19 @@ function MapPage() {
             )}
           </div>
 
-          {/* Second Dropdown */}
+          {/* Type Dropdown */}
           <div className="dropdown">
             <button className="dropbtn" onClick={toggleSecondDropdown}>
               Type ▼
             </button>
             {secondOpen && (
               <div className="dropdown-content">
-                <div>Lake</div>
-                <div>River</div>
-                <div>Spring</div>
-                <div>Ocean</div>
-                <div>Swim Hole</div>
-                <div>Waterfall</div>
+                <div onClick={() => setSelectedType('Lake')}>Lake</div>
+                <div onClick={() => setSelectedType('River')}>River</div>
+                <div onClick={() => setSelectedType('Spring')}>Spring</div>
+                <div onClick={() => setSelectedType('Ocean')}>Ocean</div>
+                <div onClick={() => setSelectedType('Swim Hole')}>Swim Hole</div>
+                <div onClick={() => setSelectedType('Waterfall')}>Waterfall</div>
               </div>
             )}
           </div>
@@ -87,14 +89,13 @@ function MapPage() {
             attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-        <LakePolygons />
+          {selectedType === 'Lake' && <LakePolygons />}
         </MapContainer>
 
-       <div className="side-info">
-  <h2 className="side-info-title">Explore Locations</h2>
- 
-</div>
-</div>
+        <div className="side-info">
+          <h2 className="side-info-title">Explore Locations</h2>
+        </div>
+      </div>
     </>
   );
 }
