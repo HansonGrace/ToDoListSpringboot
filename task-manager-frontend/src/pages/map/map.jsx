@@ -7,8 +7,10 @@ import './map.css';
 function MapPage() {
   const navigate = useNavigate();
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [secondOpen, setSecondOpen] = useState(false);
 
   const toggleDropdown = () => setDropdownOpen(prev => !prev);
+  const toggleSecondDropdown = () => setSecondOpen(prev => !prev);
 
   return (
     <>
@@ -24,20 +26,40 @@ function MapPage() {
         </div>
       </div>
 
-      {/* FLOATING DROPDOWN AT TOP LEFT */}
+      {/* FLOATING DROPDOWNS WITH CLEAN SPACING */}
       <div className="floating-dropdown">
-        <div className="dropdown">
-          <button className="dropbtn" onClick={toggleDropdown}>
-             Distance ▼
-          </button>
-          {dropdownOpen && (
-            <div className="dropdown-content">
-              <div>TBD</div>
-            </div>
-          )}
+        <div style={{ display: 'flex', columnGap: '80px' }}>
+          {/* First Dropdown */}
+          <div className="dropdown">
+            <button className="dropbtn" onClick={toggleDropdown}>
+              Distance ▼
+            </button>
+            {dropdownOpen && (
+              <div className="dropdown-content">
+                <div>1 mile</div>
+                <div>5 miles</div>
+                <div>10 miles</div>
+              </div>
+            )}
+          </div>
+
+          {/* Second Dropdown */}
+          <div className="dropdown">
+            <button className="dropbtn" onClick={toggleSecondDropdown}>
+              Type ▼
+            </button>
+            {secondOpen && (
+              <div className="dropdown-content">
+                <div>Lake</div>
+                <div>River</div>
+                <div>Spring</div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
+      {/* MAP */}
       <div className="leaflet-map-wrapper">
         <MapContainer center={[38.0, -98.0]} zoom={4} scrollWheelZoom={true}>
           <TileLayer
