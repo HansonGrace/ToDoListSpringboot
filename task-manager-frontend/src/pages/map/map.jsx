@@ -28,7 +28,7 @@ function MapPage() {
       <div className="floating-dropdown">
         <div className="dropdown">
           <button className="dropbtn" onClick={toggleDropdown}>
-            Distance ▼
+             Distance ▼
           </button>
           {dropdownOpen && (
             <div className="dropdown-content">
