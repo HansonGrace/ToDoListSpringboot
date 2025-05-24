@@ -92,6 +92,7 @@
 }
 .dropbtn:hover {
   background-color: #e8e4e4;
+  border-radius: 0.6em;
 }
 
 .dropdown-content {
@@ -100,12 +101,15 @@
   width: 120px;
   z-index: 1200;
   margin-top: 0.5em;
+  border-radius: 0.6em;
 }
 
 .dropdown-content div {
   padding: 10px;
   cursor: pointer;
   background-color: #ffffff;
+  border-radius: 0.6em;
+  
 }
 
 .dropdown-content div:hover {
