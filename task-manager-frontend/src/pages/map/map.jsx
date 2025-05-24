@@ -1,9 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { MapContainer, TileLayer } from 'react-leaflet';
+import { MapContainer, TileLayer, GeoJSON, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import './map.css';
 
+function LakePolygons() {
+  const [geoData, setGeoData] = useState(null);
+
+  useEffect(() => {
+    fetch('/lakes.geojson')
+      .then((res) => res.json())
+      .then((data) => setGeoData(data));
+  }, []);
+
+  const lakeStyle = {
+    fillColor: '#dddddd',     // light gray fill
+    color: '#444444',         // dark gray border
+    weight: 1.5,
+    fillOpacity: 0.6
+  };
+
+  return geoData ? <GeoJSON data={geoData} style={lakeStyle} /> : null;
+}
 function MapPage() {
   const navigate = useNavigate();
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -69,6 +87,7 @@ function MapPage() {
             attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
+        <LakePolygons />
         </MapContainer>
 
        <div className="side-info">
