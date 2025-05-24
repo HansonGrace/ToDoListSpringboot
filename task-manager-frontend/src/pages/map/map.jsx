@@ -24,6 +24,20 @@ function MapPage() {
         </div>
       </div>
 
+      {/* FLOATING DROPDOWN AT TOP LEFT */}
+      <div className="floating-dropdown">
+        <div className="dropdown">
+          <button className="dropbtn" onClick={toggleDropdown}>
+            Distance ▼
+          </button>
+          {dropdownOpen && (
+            <div className="dropdown-content">
+              <div>TBD</div>
+            </div>
+          )}
+        </div>
+      </div>
+
       <div className="leaflet-map-wrapper">
         <MapContainer center={[38.0, -98.0]} zoom={4} scrollWheelZoom={true}>
           <TileLayer
@@ -32,18 +46,7 @@ function MapPage() {
           />
         </MapContainer>
 
-        <div className="side-info">
-          <div className="dropdown">
-            <button className="dropbtn" onClick={toggleDropdown}>
-              Distance ▼
-            </button>
-            {dropdownOpen && (
-              <div className="dropdown-content">
-                <div>TBD</div>
-              </div>
-            )}
-          </div>
-        </div>
+        <div className="side-info"></div>
       </div>
     </>
   );
