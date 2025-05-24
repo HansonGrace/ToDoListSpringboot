@@ -53,6 +53,9 @@ function MapPage() {
                 <div>Lake</div>
                 <div>River</div>
                 <div>Spring</div>
+                <div>Ocean</div>
+                <div>Swim Hole</div>
+                <div>Waterfall</div>
               </div>
             )}
           </div>
