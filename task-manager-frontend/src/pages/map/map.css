@@ -90,6 +90,9 @@
   box-shadow: none !important;
   
 }
+.dropbtn:hover {
+  background-color: #e8e4e4;
+}
 
 .dropdown-content {
   position: absolute;
@@ -102,10 +105,11 @@
 .dropdown-content div {
   padding: 10px;
   cursor: pointer;
+  background-color: #ffffff;
 }
 
 .dropdown-content div:hover {
-  background-color: #ffffff;
+  background-color: #e8e4e4;
 }
 
 .floating-dropdown {
