@@ -44,7 +44,7 @@
   left: 20px; /* align with the left side of the top bar */
   z-index: 1100;
   border-radius: 25px;
-  background-color: #ffffff; /* light gray */
+  background-color: #ffffff; 
   padding: 20px;
   width: 300px;
   height: 400px;
@@ -82,17 +82,17 @@
 .dropbtn {
   background-color: white;
   width: 100px;
-  border: 1px solid #ccc;
+  border: 1px solid #ffffff;
   padding: 0.7em 0.5em;
   border-radius: 0.5em;
   cursor: pointer;
   text-align: left;
+  box-shadow: none !important;
   
 }
 
 .dropdown-content {
   position: absolute;
-  background-color: white;
   border: 1px solid #ccc;
   width: 100px;
   z-index: 1200;
@@ -105,7 +105,7 @@
 }
 
 .dropdown-content div:hover {
-  background-color: #f1f1f1;
+  background-color: #ffffff;
 }
 
 .floating-dropdown {
