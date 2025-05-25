@@ -4,6 +4,24 @@ import { MapContainer, TileLayer, GeoJSON, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import './map.css';
 
+function OceanPolygons(){
+  const [geoData, setGeoData] = useState(null);
+
+  useEffect(() => {
+    fetch('/oceans.geojson')
+      .then((res) => res.json())
+      .then((data) => setGeoData(data));
+  }, []);
+
+  const oceanStyle = {
+    fillColor: '#a0d8ff',     // light blue fill
+    color: '#005f73',         // dark blue border
+    weight: 1.5,
+    fillOpacity: 0.6,
+  };
+
+  return geoData ? <GeoJSON data={geoData} style={oceanStyle} /> : null;
+}
 function LakePolygons() {
   const [geoData, setGeoData] = useState(null);
 
@@ -90,6 +108,7 @@ function MapPage() {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           {selectedType === 'Lake' && <LakePolygons />}
+          {selectedType === 'Ocean' && <OceanPolygons />}
         </MapContainer>
 
         <div className="side-info">
