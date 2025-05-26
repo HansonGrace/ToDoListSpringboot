@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { MapContainer, TileLayer, GeoJSON, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import './map.css';
+const [userLocation, setUserLocation] = useState(null);
+
 
 function OceanPolygons(){
   const [geoData, setGeoData] = useState(null);
